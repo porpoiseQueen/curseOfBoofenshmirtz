@@ -3,7 +3,9 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
-import java.io.IOException; 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 public class StartRoom extends Screen{ 
 	private OvPlayer p1;  
@@ -79,7 +81,11 @@ public class StartRoom extends Screen{
 		int randomNum = (int)Math.floor(Math.random() * (1 - 0 + 1) + 0);  
 		if(randomNum==1){ 
 			BasicEnemy newEnemy=new BasicEnemy("John", 600,400,100,100,myColour,10,5,5,eImage); 
-			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.ov1); 
+			BasicEnemy newEnemy2=new BasicEnemy("John", 600,500,100,100,myColour,10,5,5,eImage); 
+			ArrayList<BasicEnemy> enemies=new ArrayList<>();
+			enemies.add(newEnemy);
+			enemies.add(newEnemy2);
+			Battle battle1=new Battle(MyGame.player1,enemies,MyGame.ov1); 
 			MyGame.activeScreen=battle1;
 		}
 	}

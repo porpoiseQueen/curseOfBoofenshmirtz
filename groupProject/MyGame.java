@@ -9,7 +9,7 @@ public class MyGame extends Game  {
     public static final String TITLE = "MyGame";
     public static final int SCREEN_WIDTH = 800;
     public static final int SCREEN_HEIGHT = 800;
-
+	//error line 128 in battle combat no work till good
     // declare variables here
 	/*public static StartScreen startscreen; 
 	

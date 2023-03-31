@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
- 
+ //indiviual encounters are loaded on the screen they appear on.
 public class Battle extends Screen{ 
 	private BattlePlayer bp1; 
 	private BasicEnemy e1;
@@ -26,15 +26,15 @@ public class Battle extends Screen{
 	int select;
 	int enemySelect;
 	
-	public Battle(BattlePlayer bp1, BasicEnemy e1, Screen returnScreen){  
+	public Battle(BattlePlayer bp1, ArrayList<BasicEnemy> e1, Screen returnScreen){  
 		myColour = new Color(0, 0,0,0);	
+		this.enemies=e1;
 		this.bp1=bp1;
-		this.e1=e1;
-		activeEnemy = e1;
-		enemies = new ArrayList<>();
-		enemies.add(e1);
+		activeEnemy = this.e1;
+		for( BasicEnemy c: e1) {
+			objects.add(c);
+		}
 		objects.add(bp1); 
-		objects.add(e1);
 		select=1;
 		enemySelect=0;
 		this.returnScreen=returnScreen;		
@@ -48,7 +48,52 @@ public class Battle extends Screen{
 		}catch (IOException e){ 
 			e.printStackTrace();
 		}
-	}   
+	}  
+	public Battle(BattlePlayer bp1, BasicEnemy e1, Screen returnScreen){ 
+
+		    myColour = new Color(0, 0,0,0);
+		
+		    this.bp1=bp1;
+		
+		    this.e1=e1;
+		
+		    activeEnemy = e1;
+		
+		    enemies = new ArrayList<>();
+		
+		    enemies.add(e1);
+		
+		    objects.add(bp1);
+		
+		    objects.add(e1);
+		
+		    select=1;
+		
+		    enemySelect=0;
+		
+		    this.returnScreen=returnScreen;  
+		
+		    try{
+		
+		      image=ImageIO.read(getClass().getResourceAsStream("/sprites/battleBackground1.png"));
+		
+		      select1=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Fight.png"));
+		
+		      select2=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Run.png"));
+		
+		      select3=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Item.png"));
+		
+		      select4=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Skill.png"));
+		
+		      arrow=ImageIO.read(getClass().getResourceAsStream("/sprites/arrow.png"));
+		
+		    }catch (IOException e){
+		
+		     e.printStackTrace();
+		
+		    }
+		
+		  } 
 	public void update(){ 
 		super.update();
 		if(select>=5){ 
