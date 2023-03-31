@@ -1,10 +1,5 @@
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics; 
-import java.awt.image.BufferedImage; 
-import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import java.awt.image.BufferedImage;
 public class BasicEnemy extends GameObject{
 	String name;
 	int attack; 
@@ -16,19 +11,22 @@ public class BasicEnemy extends GameObject{
 		this.name = name;
 		attack=atk; 
 		health=hp; 
-		defense=hp; 
+		defense=def; 
 		this.image=image;
 	} 
 	public void update(){ 
 	
 	}   
 	public int getX(){ 
-	return x;
-}	 
+		return x;
+	}
+	public String getName() {
+		return name;
+	} 
 	public int getY(){ 
 	return y;
 	} 
-	public BufferedImage returnImage(){ 
+	public BufferedImage returnImage(){
 		return image;
 	} 
 	public int getHealth(){ 

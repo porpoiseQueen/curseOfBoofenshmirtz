@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 public abstract class GameObject{ 
 	protected int x,y,width, height;  

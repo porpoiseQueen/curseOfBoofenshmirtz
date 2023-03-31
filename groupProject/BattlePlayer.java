@@ -1,10 +1,5 @@
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics; 
-import java.awt.image.BufferedImage; 
-import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import java.awt.image.BufferedImage;
 public class BattlePlayer extends GameObject{
 	int maxHealth;
 	int health; 
@@ -37,9 +32,7 @@ public class BattlePlayer extends GameObject{
 	}
 	public void enemyAttack(int enemyAtk){ 
 		int damage=enemyAtk-defense; 
-		if(damage<=0){ 
-			damage=1;
-		} 
+		if(damage<=0){ damage=1; } 
 		health-=damage;
 	} 
 	public BufferedImage returnImage(){ 

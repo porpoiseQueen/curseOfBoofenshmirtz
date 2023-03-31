@@ -1,13 +1,10 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import javax.imageio.ImageIO;
 public class MyGame extends Game  {
     public static final String TITLE = "MyGame";
     public static final int SCREEN_WIDTH = 800;
@@ -17,22 +14,22 @@ public class MyGame extends Game  {
 	/*public static StartScreen startscreen; 
 	
 	public static Screen activeScreen;  */ 
-	public static genericRoom g1; 
-	public static genericRoom g2; 
-	public static genericRoom g3; 
-	public static genericRoom g4;  
-	public static genericRoom g5; 
-	public static genericRoom g6; 
-	public static genericRoom g7; 
-	public static genericRoom g8; 
+	public static genericRoom g1;
+	public static genericRoom g2;
+	public static genericRoom g3;
+	public static genericRoom g4; 
+	public static genericRoom g5;
+	public static genericRoom g6;
+	public static genericRoom g7;
+	public static genericRoom g8;
 	public static genericRoom g9;
-	public static StartRoom ov1; 
-	public static dieScreen die; 
-	public static StartScreen start; 
-	public static Battle battle; 
+	public static StartRoom ov1;
+	public static dieScreen die;
+	public static StartScreen start;
+	public static Battle battle;
 	public static BattlePlayer player1;
-	public static Screen activeScreen;  
-	public BasicEnemy e1;  
+	public static Screen activeScreen;
+	public BasicEnemy e1;
 	public static downStairsRoom downHall;
 	public static startHallwayScreen startHall;
 	public BufferedImage image;
@@ -83,9 +80,7 @@ public class MyGame extends Game  {
     public void keyTyped(KeyEvent ke) { activeScreen.keyTyped(ke);}
 
     @Override
-    public void keyPressed(KeyEvent ke) { 
-		
-	}
+    public void keyPressed(KeyEvent ke) { activeScreen.keyPressed(ke); }
 	
     @Override
     public void keyReleased(KeyEvent ke) {activeScreen.keyReleased(ke);}

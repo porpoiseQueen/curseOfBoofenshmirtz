@@ -1,13 +1,10 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent; 
-import java.util.ArrayList;  
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 public class StartRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
@@ -37,8 +34,7 @@ public class StartRoom extends Screen{
 		for(GameObject obj: objects){ 
 			obj.update();
 		}   
-		if(p1.x>330 && p1.x< 410){ 
-			System.out.println("lined up"); 
+		if(p1.x>330 && p1.x< 410){  
 			if(p1.y>=580){  
 			p1.x=340; 
 			p1.y=570;
@@ -68,7 +64,6 @@ public class StartRoom extends Screen{
 				
 			} 
 		}
-		
 		if(p1.y+p1.height <680){
 			if(control=='s'){ 
 				p1.y+=5; 
