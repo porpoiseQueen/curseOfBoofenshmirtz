@@ -19,7 +19,7 @@ public class Sign extends GameObject{
 		pen.setColor(textColor);  
 	  
 		pen.setFont(new Font("Arial",1,size));		
-		pen.drawString(text, x, y+50);
+		pen.drawString(text, x, y);
 		
 	} 
 	public void setColor(Color newText){ 
