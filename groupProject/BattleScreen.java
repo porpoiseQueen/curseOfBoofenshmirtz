@@ -1,11 +1,18 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.MouseEvent; 
+import java.util.ArrayList; 
 public class BattleScreen extends Screen{ 
-	public BattleScreen(){ 
+	public BattleSCreen(){ 
 	
 	} 
-	public void keyTyped(KeyEvent ke) {
-		MyGame.activeScreen=MyGame.ov1;
+	public void keyTyped(KeyEvent ke) {  
+		char control=ke.getKeyChar(); 
+	
+			System.out.println("a");
+			MyGame.activeScreen=MyGame.ov1;
 		
 	}
 

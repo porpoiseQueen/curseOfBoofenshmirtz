@@ -1,10 +1,13 @@
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Font;
+import java.awt.Graphics; 
+import java.util.ArrayList;  
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent; 
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
+import javax.swing.JPanel;
 public class dieScreen extends Screen{ 
 	private Sign dieSign;  
 	private Sign returnSign;  	
@@ -31,8 +34,12 @@ public class dieScreen extends Screen{
 		//pen.setFont(new Font("Arial",1,40));
 		pen.drawImage(image,100,100,100,100,null);
 	}
-	public void keyTyped(KeyEvent ke) {
-		MyGame.activeScreen=MyGame.start;
+	public void keyTyped(KeyEvent ke) {  
+		char control=ke.getKeyChar(); 
+	
+			System.out.println("a");
+			MyGame.activeScreen=MyGame.start;
+		
 	}
 
    

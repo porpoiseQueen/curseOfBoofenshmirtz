@@ -1,10 +1,13 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;  
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.MouseEvent;  
+import java.util.ArrayList;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
+import javax.swing.JPanel;  
 public class Win extends Screen{ 
 	Screen returning; 
 	public Sign winSign;  

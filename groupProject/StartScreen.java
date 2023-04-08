@@ -1,10 +1,13 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent; 
+import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
+import javax.swing.JPanel;
 public class StartScreen extends Screen{ 
 	private Sign title;  
 	private BufferedImage image;
@@ -18,7 +21,7 @@ public class StartScreen extends Screen{
 		objects.add(startSign); 
 	try{ 
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/Title2.png")); 
-		
+			
 		}catch (IOException e){ 
 			e.printStackTrace();
 		}
@@ -31,6 +34,8 @@ public class StartScreen extends Screen{
 		
 	}
 	public void keyTyped(KeyEvent ke) {  
+		char control=ke.getKeyChar(); 
+	
 		MyGame.activeScreen=MyGame.ov1;
 	}
 
