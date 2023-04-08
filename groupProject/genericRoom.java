@@ -1,13 +1,10 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent; 
-import java.util.ArrayList;  
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel;  
+import javax.imageio.ImageIO;
 public class genericRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
@@ -28,21 +25,26 @@ public class genericRoom extends Screen{
 			p1=new OvPlayer(350,95,100,100,myColour);
 		}
 		 objects.add(p1);		
+		 
 		try{ 
 			if(orientation==0){
 				image=ImageIO.read(getClass().getResourceAsStream("/sprites/trueBaseRoom.png"));   
-				
 			} 
 			else{ 
 				image=ImageIO.read(getClass().getResourceAsStream("/sprites/trueBaseRoomU.png")); 
 			}
 			imageP=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
-			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
+		
 		}catch (IOException e){ 
 			e.printStackTrace();
-		}  	 
-	}  
+		}  
+		
+		
+		 
+	} 
+	 
 	public void update(){ 
+		
 		for(GameObject obj: objects){ 
 			obj.update();
 		}   
@@ -52,13 +54,15 @@ public class genericRoom extends Screen{
 				p1.x=340; 
 				p1.y=570;
 					MyGame.activeScreen=returnTo; 
+					
 				} 
 			} 
 			else{ 
 				if(p1.y<=85){  
 					p1.x=340; 
 					p1.y=95;
-					MyGame.activeScreen=returnTo; 	
+					MyGame.activeScreen=returnTo; 
+					
 				}
 			}
 		}
@@ -66,62 +70,74 @@ public class genericRoom extends Screen{
 	public void draw(Graphics pen){ 
 		pen.drawImage(image,0,0,MyGame.SCREEN_WIDTH,MyGame.SCREEN_HEIGHT,null);
 		super.draw(pen); 
-		pen.drawImage(imageP,p1.x,p1.y,100,100,null);	
+		pen.drawImage(imageP,p1.x,p1.y,100,100,null);
+		
+		
 	}
 	public void keyTyped(KeyEvent ke) {  
-		char control=ke.getKeyChar(); 
+		char control=ke.getKeyChar();
 		if(p1.x+p1.width <670){
 			if(control=='d'){ 
 				p1.x+=5; 
+				
 			} 
 		}  
 		if(p1.x>130){
 			if(control=='a'){ 
-				p1.x-=5; 	
+				p1.x-=5; 
+				
 			} 
 		}
 		
 		if(p1.y+p1.height <680){
 			if(control=='s'){ 
-				p1.y+=5; 	
+				p1.y+=5; 
+				
 			} 
 		} 
 		if(p1.y>85){
 			if(control=='w'){ 
-				p1.y-=5; 	
+				p1.y-=5; 
+				
 			} 
 		}
-		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
+		int randomNum = (int)Math.floor(Math.random() * (1 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			int randomNum2 = (int)Math.floor(Math.random() * (500 - 0 + 1) + 0); 
-			if(randomNum2==1){ 
-				try{ 
-			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/shinyJaguar.png"));
-		
-				}catch (IOException e){ 
-					e.printStackTrace();
-				}
-			}
-			BasicEnemy newEnemy=new BasicEnemy("Attack Jaguar",600,400,100,100,myColour,10,5,5,eImage); 
-			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.ov1); 
-			try{ 
-			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
-		
-				}catch (IOException e){ 
-					e.printStackTrace();
-				}
+			BasicEnemy newEnemy=new BasicEnemy("John", 600,400,100,100,myColour,10,5,5,eImage); 
+			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.g1); 
 			MyGame.activeScreen=battle1;
 		}
 	}
-    public void keyPressed(KeyEvent ke) {  }
-	public void keyReleased(KeyEvent ke) { }
+
+   
+    public void keyPressed(KeyEvent ke) {  
+		
+	}
+	public void keyReleased(KeyEvent ke) { 
+	
+	}
+
+  
     public void mouseClicked(MouseEvent me) {}
+
+  
     public void mousePressed(MouseEvent me) {}
+    
+   
     public void mouseReleased(MouseEvent me) {}
+
+ 
     public void mouseEntered(MouseEvent me) {}
+
+  
     public void mouseExited(MouseEvent me) {}  
-	public void mouseDragged(MouseEvent me){}  
-	public void mouseMoved(MouseEvent me){}
+	public void mouseDragged(MouseEvent me){ 
+		
+	} 
+	
+	 
+	public void mouseMoved(MouseEvent me){ 
+		
+		
+	}
 }

@@ -1,13 +1,12 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent; 
-import java.util.ArrayList;  
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
-import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 public class StartRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
@@ -34,12 +33,10 @@ public class StartRoom extends Screen{
 	}
 	public void update(){ 
 		//door
-		System.out.println(p1.x);
 		for(GameObject obj: objects){ 
 			obj.update();
 		}   
-		if(p1.x>330 && p1.x< 410){ 
-			 
+		if(p1.x>330 && p1.x< 410){  
 			if(p1.y>=580){  
 			p1.x=340; 
 			p1.y=570;
@@ -56,8 +53,7 @@ public class StartRoom extends Screen{
 		
 	}
 	public void keyTyped(KeyEvent ke) {  
-		char control=ke.getKeyChar(); 
-		
+		char control=ke.getKeyChar();
 		if(p1.x+p1.width <670){
 			if(control=='d'){ 
 				p1.x+=5; 
@@ -70,7 +66,6 @@ public class StartRoom extends Screen{
 				
 			} 
 		}
-		
 		if(p1.y+p1.height <680){
 			if(control=='s'){ 
 				p1.y+=5; 
@@ -83,27 +78,14 @@ public class StartRoom extends Screen{
 				
 			} 
 		}
-		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
+		int randomNum = (int)Math.floor(Math.random() * (1 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			int randomNum2 = (int)Math.floor(Math.random() * (500 - 0 + 1) + 0); 
-			if(randomNum2==1){ 
-				try{ 
-			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/shinyJaguar.png"));
-		
-				}catch (IOException e){ 
-					e.printStackTrace();
-				}
-			}
-			BasicEnemy newEnemy=new BasicEnemy("Attack Jaguar",600,400,100,100,myColour,10,5,5,eImage); 
-			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.ov1); 
-			try{ 
-			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
-		
-				}catch (IOException e){ 
-					e.printStackTrace();
-				}
+			BasicEnemy newEnemy=new BasicEnemy("John", 600,400,100,100,myColour,10,5,5,eImage); 
+			BasicEnemy newEnemy2=new BasicEnemy("John", 600,500,100,100,myColour,10,5,5,eImage); 
+			ArrayList<BasicEnemy> enemies=new ArrayList<>();
+			enemies.add(newEnemy);
+			enemies.add(newEnemy2);
+			Battle battle1=new Battle(MyGame.player1,newEnemy2,MyGame.ov1); 
 			MyGame.activeScreen=battle1;
 		}
 	}

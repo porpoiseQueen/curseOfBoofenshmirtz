@@ -1,10 +1,5 @@
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics; 
-import java.awt.image.BufferedImage; 
-import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import java.awt.image.BufferedImage;
 public class BasicEnemy extends GameObject{
 	String name;
 	int attack; 
