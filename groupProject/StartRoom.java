@@ -85,7 +85,7 @@ public class StartRoom extends Screen{
 			ArrayList<BasicEnemy> enemies=new ArrayList<>();
 			enemies.add(newEnemy);
 			enemies.add(newEnemy2);
-			Battle battle1=new Battle(MyGame.player1,newEnemy2,MyGame.ov1); 
+			Battle battle1=new Battle(MyGame.player1,enemies,MyGame.ov1); 
 			MyGame.activeScreen=battle1;
 		}
 	}

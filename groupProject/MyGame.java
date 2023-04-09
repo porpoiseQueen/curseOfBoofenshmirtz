@@ -1,56 +1,46 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import javax.imageio.ImageIO;
 public class MyGame extends Game  {
     public static final String TITLE = "MyGame";
     public static final int SCREEN_WIDTH = 800;
     public static final int SCREEN_HEIGHT = 800;
-
+	//error line 128 in battle combat no work till good
     // declare variables here
-	public static int bossCount;
-	public static genericRoom g1; 
-	public static genericRoom g2; 
-	public static genericRoom g3; 
-	public static genericRoom g4;  
-	public static genericRoom g5; 
-	public static genericRoom g6; 
-	public static genericRoom g7; 
-	public static genericRoom g8; 
-	public static genericRoom g9; 
-	public static genericRoom g10; 
-	public static genericRoom g11; 
-	public static genericRoom g12;
-	public static StartRoom ov1; 
-	public static dieScreen die; 
-	public static StartScreen start; 
-	public static Battle battle;  
-	public static boofsLair boofLab;
-	public static BattlePlayer player1; 
-	public static basement b1; 
-	public static kitchen k1;
-	public static Screen activeScreen;  
-	public BasicEnemy e1;  
+	/*public static StartScreen startscreen; 
+	
+	public static Screen activeScreen;  */ 
+	public static genericRoom g1;
+	public static genericRoom g2;
+	public static genericRoom g3;
+	public static genericRoom g4; 
+	public static genericRoom g5;
+	public static genericRoom g6;
+	public static genericRoom g7;
+	public static genericRoom g8;
+	public static genericRoom g9;
+	public static StartRoom ov1;
+	public static dieScreen die;
+	public static StartScreen start;
+	public static Battle battle;
+	public static BattlePlayer player1;
+	public static Screen activeScreen;
+	public BasicEnemy e1;
 	public static downStairsRoom downHall;
 	public static startHallwayScreen startHall;
 	public BufferedImage image;
 	public static Color myColour;
     public MyGame() {
         // initialize variables here 
-		bossCount=0;
 		myColour = new Color(0, 0,0,0);	
 		ov1=new StartRoom(); 
-		
 		die= new dieScreen();  
 		downHall=new downStairsRoom();
-		start=new StartScreen();  
-		b1=new basement(downHall);			
+		start=new StartScreen();   
 		startHall=new startHallwayScreen();
 		g1=new genericRoom(startHall,0); 
 		g2=new genericRoom(startHall,0);  
@@ -60,22 +50,18 @@ public class MyGame extends Game  {
 		g4=new genericRoom(downHall,0);   
 		g7=new genericRoom(downHall,1);
 		g8=new genericRoom(downHall,1); 
-		g9=new genericRoom(b1,0);   
-		g10=new genericRoom(b1,1); 
-		g11=new genericRoom(b1,1); 
-		g12=new genericRoom(b1,0); 
-		b1=new basement(downHall);		
-		boofLab=new boofsLair();
-		k1=new kitchen();
+		g9=new genericRoom(downHall,1);  
+		
+		
 		try{ 
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/paprikaBattleSprite.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
-		}   
+		}  
 		
 		player1=new BattlePlayer(150,400, 100,100,myColour,10,5,5,5,1,image); 
 		
-		activeScreen=ov1;
+		activeScreen=start;
     }
     
     public void update() {
@@ -94,9 +80,7 @@ public class MyGame extends Game  {
     public void keyTyped(KeyEvent ke) { activeScreen.keyTyped(ke);}
 
     @Override
-    public void keyPressed(KeyEvent ke) { 
-		
-	}
+    public void keyPressed(KeyEvent ke) { activeScreen.keyPressed(ke); }
 	
     @Override
     public void keyReleased(KeyEvent ke) {activeScreen.keyReleased(ke);}

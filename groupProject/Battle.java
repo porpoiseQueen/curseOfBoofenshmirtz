@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
  //indiviual encounters are loaded on the screen they appear on.
 public class Battle extends Screen{ 
 	private BattlePlayer bp1; 
+	private BasicEnemy e1;
 	private BasicEnemy activeEnemy;
 	private ArrayList<BasicEnemy> enemies;
 	private BufferedImage image; 
@@ -25,12 +26,12 @@ public class Battle extends Screen{
 	int select;
 	int enemySelect;
 	
-	public Battle(BattlePlayer bp1, ArrayList<BasicEnemy> enemies, Screen returnScreen){  
+	public Battle(BattlePlayer bp1, ArrayList<BasicEnemy> e1, Screen returnScreen){  
 		myColour = new Color(0, 0,0,0);	
-		this.enemies=enemies;
+		this.enemies=e1;
 		this.bp1=bp1;
-		activeEnemy = enemies.get(0);
-		for( BasicEnemy c: enemies) {
+		activeEnemy = this.e1;
+		for( BasicEnemy c: e1) {
 			objects.add(c);
 		}
 		objects.add(bp1); 
@@ -48,23 +49,23 @@ public class Battle extends Screen{
 			e.printStackTrace();
 		}
 	}  
-	public Battle(BattlePlayer bp1, BasicEnemy activeEnemy, Screen returnScreen){ 
+	public Battle(BattlePlayer bp1, BasicEnemy e1, Screen returnScreen){ 
 
 		    myColour = new Color(0, 0,0,0);
 		
 		    this.bp1=bp1;
 		
-		    this.activeEnemy=activeEnemy;
+		    this.e1=e1;
 		
-		    activeEnemy = this.activeEnemy;
+		    activeEnemy = e1;
 		
 		    enemies = new ArrayList<>();
 		
-		    enemies.add(activeEnemy);
+		    enemies.add(e1);
 		
 		    objects.add(bp1);
 		
-		    objects.add(activeEnemy);
+		    objects.add(e1);
 		
 		    select=1;
 		
@@ -113,7 +114,7 @@ public class Battle extends Screen{
 		else if(select==4){ 
 			activeSelect=select4;
 		} 
-		if(activeEnemy.getHealth()<=0){ 
+		if(e1.getHealth()<=0){ 
 			//Win winScreen=new Win(returnScreen);
 			bp1.maxHeal();
 			MyGame.activeScreen=returnScreen;
@@ -127,10 +128,10 @@ public class Battle extends Screen{
 		Sign name = new Sign(((activeEnemy.x+(activeEnemy.x+activeEnemy.width))/2)-33, activeEnemy.y-25, 50, 20, myColour, "", Color.BLACK, 12);
 		objects.add(name);
 		pen.drawImage(bp1.returnImage(),bp1.getX(),bp1.getY(), 100,100,null); 
-		pen.drawImage(activeEnemy.returnImage(),activeEnemy.getX(),activeEnemy.getY(), 100,100,null);
+		pen.drawImage(e1.returnImage(),e1.getX(),e1.getY(), 100,100,null);
 		pen.drawImage(activeSelect,0,500,200,200,null);
-		//pen.drawString("HP: " + activeEnemy.health, ((activeEnemy.x + (activeEnemy.x+activeEnemy.width))/2) - 20, activeEnemy.y - 3);
-		pen.drawString("HP: " + activeEnemy.health, ((activeEnemy.x + (activeEnemy.x+activeEnemy.width))/2) - 20, activeEnemy.y - 3); 
+		pen.drawString("HP: " + bp1.health, ((bp1.x + (bp1.x+bp1.width))/2) - 20, bp1.y);
+		pen.drawString("HP: " + e1.health, ((e1.x + (e1.x+e1.width))/2) - 20, e1.y - 3); 
 		if(select == 1 && control == KeyEvent.VK_ENTER || select == 1 && control == KeyEvent.VK_SPACE) {
 			pen.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
 			pen.drawImage(arrow, ((activeEnemy.x+(activeEnemy.x+activeEnemy.width))/2)-25, activeEnemy.y+activeEnemy.height+10, 50, 100, null);
@@ -139,8 +140,8 @@ public class Battle extends Screen{
 	} 
 	
 	public void keyTyped(KeyEvent ke) {
-		//bp1.enemyAttack(activeEnemy.attack);
-		//activeEnemy.playerAttack(2,5);
+		//bp1.enemyAttack(e1.attack);
+		//e1.playerAttack(2,5);
 		control=ke.getKeyChar();  
 		if(control=='s'){
 			select+=1;
