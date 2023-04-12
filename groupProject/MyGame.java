@@ -68,10 +68,10 @@ public class MyGame extends Game  {
 		boofLab=new boofsLair();
 		k1=new kitchen();
 		try{ 
-			image=ImageIO.read(getClass().getResourceAsStream("/sprites/paprikaBattleSprite.png"));
+			image=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
-		}   
+		}  
 		
 		player1=new BattlePlayer(150,400, 100,100,myColour,10,5,5,5,1,image); 
 		
