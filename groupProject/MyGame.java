@@ -54,7 +54,7 @@ public class MyGame extends Game  {
 		
 		
 		try{ 
-			image=ImageIO.read(getClass().getResourceAsStream("/sprites/paprikaBattleSprite.png"));
+			image=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
 		}  

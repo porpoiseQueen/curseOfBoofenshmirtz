@@ -1,18 +1,24 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.MouseEvent; 
+import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
+import javax.swing.JPanel; 
 public class downStairsRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
 	protected Color myColour; 
-	public BufferedImage eImage; 
+	public BufferedImage eImage;  
+	private boolean printLock; 
+	private Sign lockPrint;
 	public downStairsRoom(){ 
-		  
+		printLock=false; 
+		lockPrint=new Sign(0,0,580,100,Color.BLACK,"You can't enter the basement without defeating all 4 generals", Color.WHITE,20);
 		myColour = new Color(0, 0,0,0);		 
 		p1=new OvPlayer(350,90,100,100,myColour);
 		 objects.add(p1);		
@@ -20,7 +26,7 @@ public class downStairsRoom extends Screen{
 		try{ 
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/hallwayWithStairs2.png"));  
 			imageP=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
-		
+			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackCroc.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
 		} 
@@ -28,18 +34,24 @@ public class downStairsRoom extends Screen{
 		 
 	}  
 	public void update(){ 
-		
+		printLock=false;
 		for(GameObject obj: objects){ 
 			obj.update();
 		}   
-		if(p1.x>330 && p1.x< 410){
-			/*if(p1.y>=580){   
-			p1.y=570;
-				MyGame.activeScreen=MyGame.g9; 
-				
-			} */ 
+		if(p1.x>330 && p1.x< 410){ 
+			
+			if(p1.y>=580){   
+				if(MyGame.bossCount>=4){
+					p1.y=570;
+					MyGame.activeScreen=MyGame.b1; 
+				} 
+				else{ 
+					printLock=true;
+				}
+			}  
 			if(p1.y<=85){  
-			p1.y=95;
+				
+				p1.y=95;
 				MyGame.activeScreen=MyGame.startHall; 
 				
 			} 
@@ -72,8 +84,11 @@ public class downStairsRoom extends Screen{
 		
 		
 	} 
-	public void keyTyped(KeyEvent ke) {
-		char control=ke.getKeyChar();
+	public void keyTyped(KeyEvent ke) {  
+		System.out.println(p1.x); 
+		System.out.println(p1.y);
+		char control=ke.getKeyChar(); 
+		System.out.println(control);
 		if(p1.x+p1.width <800){
 			if(control=='d'){ 
 				p1.x+=5; 
@@ -99,10 +114,27 @@ public class downStairsRoom extends Screen{
 				
 			} 
 		}
-		int randomNum = (int)Math.floor(Math.random() * (1 - 0 + 1) + 0);  
+		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			BasicEnemy newEnemy=new BasicEnemy("John", 0,0,100,100,myColour,10,5,5,eImage); 
+			int randomNum2 = (int)Math.floor(Math.random() * (500 - 0 + 1) + 0); 
+			if(randomNum2==1){ 
+				try{ 
+			
+				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/shinyJaguar.png"));
+		
+				}catch (IOException e){ 
+					e.printStackTrace();
+				}
+			}
+			BasicEnemy newEnemy=new BasicEnemy("Attack Crocodile",500,400,300,300,myColour,10,5,5,eImage); 
 			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.downHall); 
+			try{ 
+			
+				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackCroc.png"));
+		
+				}catch (IOException e){ 
+					e.printStackTrace();
+				}
 			MyGame.activeScreen=battle1;
 		}
 	}
@@ -110,7 +142,11 @@ public class downStairsRoom extends Screen{
 			pen.drawImage(image,0,0,MyGame.SCREEN_WIDTH,MyGame.SCREEN_HEIGHT,null);
 			super.draw(pen); 
 			pen.drawImage(imageP,p1.x,p1.y,100,100,null);
-			
+			if(printLock){ 
+				lockPrint.draw(pen); 
+				Sign newSign=new Sign(0,200,200,50,Color.WHITE,"You have defeated "+MyGame.bossCount+"/4",Color.BLACK,15); 
+				newSign.draw(pen);
+			}
 			
 		}	
 	public void keyPressed(KeyEvent ke) {  
