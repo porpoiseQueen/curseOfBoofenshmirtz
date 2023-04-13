@@ -1,10 +1,13 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
+import javax.swing.JPanel; 
 public class MyGame extends Game  {
     public static final String TITLE = "MyGame";
     public static final int SCREEN_WIDTH = 800;
@@ -31,7 +34,8 @@ public class MyGame extends Game  {
 	public static boofsLair boofLab;
 	public static BattlePlayer player1; 
 	public static basement b1; 
-	public static kitchen k1;
+	public static kitchen k1; 
+	public static minigame mini1;
 	public static Screen activeScreen;  
 	public BasicEnemy e1;  
 	public static downStairsRoom downHall;
@@ -43,7 +47,7 @@ public class MyGame extends Game  {
 		bossCount=0;
 		myColour = new Color(0, 0,0,0);	
 		ov1=new StartRoom(); 
-		
+		mini1=new minigame();
 		die= new dieScreen();  
 		downHall=new downStairsRoom();
 		start=new StartScreen();  
@@ -72,7 +76,7 @@ public class MyGame extends Game  {
 		
 		player1=new BattlePlayer(150,400, 100,100,myColour,10,5,5,5,1,image); 
 		
-		activeScreen=ov1;
+		activeScreen=mini1;
     }
     
     public void update() {
