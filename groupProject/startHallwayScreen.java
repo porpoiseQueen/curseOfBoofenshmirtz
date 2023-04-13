@@ -33,8 +33,7 @@ public class startHallwayScreen extends Screen{
 		for(GameObject obj: objects){ 
 			obj.update();
 		}   
-		if(p1.x>330 && p1.x< 410){ 
-			System.out.println("lined up"); 
+		if(p1.x>330 && p1.x< 410){
 			if(p1.y>=580){  
 			p1.y=570;
 				MyGame.activeScreen=MyGame.downHall; 
