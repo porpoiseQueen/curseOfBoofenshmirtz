@@ -81,11 +81,8 @@ public class downStairsRoom extends Screen{
 		
 		
 	} 
-	public void keyTyped(KeyEvent ke) {  
-		System.out.println(p1.x); 
-		System.out.println(p1.y);
-		char control=ke.getKeyChar(); 
-		System.out.println(control);
+	public void keyTyped(KeyEvent ke) {
+		char control=ke.getKeyChar();
 		if(p1.x+p1.width <800){
 			if(control=='d'){ 
 				p1.x+=5; 
