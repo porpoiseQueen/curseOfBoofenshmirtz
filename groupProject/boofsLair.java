@@ -82,7 +82,7 @@ public class boofsLair extends Screen{
 		}
 		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			BasicEnemy newEnemy=new BasicEnemy(0,0,100,100,myColour,10,5,5,eImage); 
+			BasicEnemy newEnemy=new BasicEnemy("John", 0,0,100,100,myColour,10,5,5,eImage); 
 			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.activeScreen); 
 			MyGame.activeScreen=battle1;
 		}
