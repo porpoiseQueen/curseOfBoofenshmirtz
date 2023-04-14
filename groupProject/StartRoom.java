@@ -78,7 +78,7 @@ public class StartRoom extends Screen{
 				
 			} 
 		}
-		int randomNum = (int)Math.floor(Math.random() * (1 - 0 + 1) + 0);  
+		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
 		if(randomNum==1){ 
 			BasicEnemy newEnemy=new BasicEnemy("John", 600,400,100,100,myColour,10,5,5,eImage); 
 			BasicEnemy newEnemy2=new BasicEnemy("John", 600,500,100,100,myColour,10,5,5,eImage); 

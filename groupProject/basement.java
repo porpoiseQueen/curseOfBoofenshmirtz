@@ -1,13 +1,10 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent; 
-import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
 public class basement extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
@@ -24,7 +21,7 @@ public class basement extends Screen{
 		try{ 
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/basementWithStairs.png"));  
 			imageP=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
-			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
+			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/hoverShark.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
 		}  
@@ -110,21 +107,12 @@ public class basement extends Screen{
 		}
 		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			int randomNum2 = (int)Math.floor(Math.random() * (500 - 0 + 1) + 0); 
-			if(randomNum2==1){ 
-				try{ 
 			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/shinyJaguar.png"));
-		
-				}catch (IOException e){ 
-					e.printStackTrace();
-				}
-			}
-			BasicEnemy newEnemy=new BasicEnemy("Attack Jaguar",600,400,100,100,myColour,10,5,5,eImage); 
+			BasicEnemy newEnemy=new BasicEnemy("HoverShark",550,400,200,200,myColour,10,5,5,eImage); 
 			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.ov1); 
 			try{ 
 			
-				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
+				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/hoverShark.png"));
 		
 				}catch (IOException e){ 
 					e.printStackTrace();

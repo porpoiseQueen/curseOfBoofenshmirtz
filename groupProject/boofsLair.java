@@ -1,20 +1,16 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics; 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent; 
-import java.util.ArrayList;  
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
-import javax.imageio.ImageIO; 
-import javax.swing.JPanel; 
+import javax.imageio.ImageIO;
 public class boofsLair extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
 	protected Color myColour; 
-	public BufferedImage eImage;  
-	private Screen returnTo;
+	public BufferedImage eImage;
 	public boofsLair(){ 
 		  
 		myColour = new Color(0, 0,0,0);		 
@@ -82,7 +78,7 @@ public class boofsLair extends Screen{
 		}
 		int randomNum = (int)Math.floor(Math.random() * (300 - 0 + 1) + 0);  
 		if(randomNum==1){ 
-			BasicEnemy newEnemy=new BasicEnemy(0,0,100,100,myColour,10,5,5,eImage); 
+			BasicEnemy newEnemy=new BasicEnemy("John", 0,0,100,100,myColour,10,5,5,eImage); 
 			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.activeScreen); 
 			MyGame.activeScreen=battle1;
 		}
