@@ -13,6 +13,7 @@ public class StartRoom extends Screen{
 	private BufferedImage imageP; 
 	protected Color myColour; 
 	public BufferedImage eImage;
+	public Giff gif;
 	public StartRoom(){ 
 		  
 		myColour = new Color(0, 0,0,0);		 
@@ -23,6 +24,7 @@ public class StartRoom extends Screen{
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/startRoom.png"));  
 			imageP=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png")); 
 			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
+			gif = new Giff("amoga.gif");
 		
 		}catch (IOException e){ 
 			e.printStackTrace();
@@ -49,7 +51,6 @@ public class StartRoom extends Screen{
 		pen.drawImage(image,0,0,MyGame.SCREEN_WIDTH,MyGame.SCREEN_HEIGHT,null);
 		super.draw(pen); 
 		pen.drawImage(imageP,p1.x,p1.y,100,100,null);
-		
 		
 	}
 	public void keyTyped(KeyEvent ke) {  
