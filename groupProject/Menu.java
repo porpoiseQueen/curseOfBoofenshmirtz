@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Graphics;
 public class Menu<Item> extends GameObject{ 
     Item option;
     public Menu(int x, int y, int width, int height, Color c) {
