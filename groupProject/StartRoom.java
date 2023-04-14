@@ -24,7 +24,7 @@ public class StartRoom extends Screen{
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/startRoom.png"));  
 			imageP=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png")); 
 			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
-			gif = new Giff("amoga.gif");
+			gif = new Giff("/sprites/amoga.gif");
 		
 		}catch (IOException e){ 
 			e.printStackTrace();
