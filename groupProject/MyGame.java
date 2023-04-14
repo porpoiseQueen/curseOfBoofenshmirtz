@@ -1,10 +1,13 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;  
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO; 
+import javax.swing.JPanel; 
 public class MyGame extends Game  {
     public static final String TITLE = "MyGame";
     public static final int SCREEN_WIDTH = 800;
@@ -73,7 +76,7 @@ public class MyGame extends Game  {
 		
 		player1=new BattlePlayer(150,400, 100,100,myColour,10,5,5,5,1,image); 
 		
-		activeScreen=start;
+		activeScreen=mini1;
     }
     
     public void update() {
