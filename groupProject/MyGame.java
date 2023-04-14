@@ -73,7 +73,7 @@ public class MyGame extends Game  {
 		
 		player1=new BattlePlayer(150,400, 100,100,myColour,10,5,5,5,1,image); 
 		
-		activeScreen=mini1;
+		activeScreen=start;
     }
     
     public void update() {
