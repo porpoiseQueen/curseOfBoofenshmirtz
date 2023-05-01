@@ -22,11 +22,21 @@ public class Menu<I> extends GameObject{
         
     }
     public void draw(Graphics pen) {
-        if(optionsArrayList.get(0).equals(null)) {
+        /* if(optionsArrayList.get(0).equals(null)) {
             for(int i = 0; i < options.length; i++) {
-                // pen.setColor(options[i].getBgColor());
+                pen.setColor(options[i].getBgColor());
+                pen.fillRect(options[i].getPosX(), options[i].getY(), width, height);
+                pen.setColor(options[i].getTextColor());
+                pen.drawString(options[i].getName(), options[i].getX(), options[i].getY());
             }
-        }
+        } else {
+            for(int i = 0; i < optionsArrayList.size(); i++) {
+                pen.setColor(optionsArrayList.get(i).getBgColor());
+                pen.fillRect(optionsArrayList.get(i).getPosX(), optionsArrayList.get(i).getY(), width, height);
+                pen.setColor(optionsArrayList.get(i).getTextColor());
+                pen.drawString(optionsArrayList.get(i).getName(), optionsArrayList.get(i).getX(), optionsArrayList.get(i).getY());
+            }
+        } */
     }
 }
 class Item<I> {
