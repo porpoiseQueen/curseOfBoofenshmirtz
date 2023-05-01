@@ -41,10 +41,10 @@ public class Menu<I> extends GameObject{
     }
 }
 class Item<I> {
-      private int positionX, positionY;
-      private Item<I> up, down, left, right;
-      private Color bgColor, textColor;
-      public Item(int posX, int posY, Item<I> up, Item<I> down, Item<I> left, Item<I> right, Color bg, Color txt) {
+    private int positionX, positionY;
+    private Item<I> up, down, left, right;
+    private Color bgColor, textColor;
+    public Item(int posX, int posY, Item<I> up, Item<I> down, Item<I> left, Item<I> right, Color bg, Color txt) {
         positionX = posX;
         positionY = posY;
         this.up = up;
@@ -53,21 +53,13 @@ class Item<I> {
         this.right = right;
         bgColor = bg;
         textColor = txt;
-      }
-      public int getX() { return positionX; }
-      public int getY() { return positionY; }
-      public Item<I> getUp() { return up; }
-      public Item<I> getDown() { return down; }
-      public Item<I> getLeft() { return left; }
-      public Item<I> getRight() { return right; }
-      public Color getBgColor() { return bgColor; }
-      public Color getTextColor() { return textColor; }
+    }
+    public int getX() { return positionX; }
+    public int getY() { return positionY; }
+    public Item<I> getUp() { return up; }
+    public Item<I> getDown() { return down; }
+    public Item<I> getLeft() { return left; }
+    public Item<I> getRight() { return right; }
+    public Color getBgColor() { return bgColor; }
+    public Color getTextColor() { return textColor; }
 }
-
-
-
-
-
-
-
-// [a, a, a, a, a, a, a, a, a, a, a, a]
