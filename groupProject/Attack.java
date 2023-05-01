@@ -1,5 +1,7 @@
-public class Attack {
+public class  Attack {
     public Attack(GameObject target, GameObject attacker) {
-        
     }
+    
+	
+
 }
