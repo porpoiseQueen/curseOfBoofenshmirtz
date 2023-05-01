@@ -24,7 +24,7 @@ public class Menu<I> extends GameObject{
     }
     public void draw(Graphics pen) {
         /* if(optionsArrayList.get(0).isEmpty()) {
-            for(int i = 0; i < options.length; i++) {
+            for(int i = 0; i < options.length; i2++) {
                 pen.setColor(options[i].getBgColor());
                 pen.fillRect(options[i].getPosX(), options[i].getY(), width, height);
                 pen.setColor(options[i].getTextColor());
