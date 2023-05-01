@@ -9,8 +9,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO; 
 import javax.swing.JPanel;  
 import java.util.ArrayList; 
-public class minigame extends Screen{ 
-	private minigamePlayer p1;  
+public class Minigame extends Screen{ 
+	private MinigamePlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP;
 	private BufferedImage imagePr;  
@@ -22,15 +22,15 @@ public class minigame extends Screen{
 	public BufferedImage eImagel; 
 	public BufferedImage eImaged; 
 	public BufferedImage eImageu;
-	private ArrayList<minigameEnemy> downEnemies; 
-	private ArrayList<minigameEnemy> upEnemies; 
-	private ArrayList<minigameEnemy> rightEnemies; 
-	private ArrayList<minigameEnemy> leftEnemies; 
-	private ArrayList<minigameEnemy> allEnemies; 
+	private ArrayList<MinigameEnemy> downEnemies; 
+	private ArrayList<MinigameEnemy> upEnemies; 
+	private ArrayList<MinigameEnemy> rightEnemies; 
+	private ArrayList<MinigameEnemy> leftEnemies; 
+	private ArrayList<MinigameEnemy> allEnemies; 
 	
-	public minigame(){ 
+	public Minigame(){ 
 		myColour = new Color(0, 0,0,0);		 
-		p1=new minigamePlayer(350,95,100,100,myColour,0);
+		p1=new MinigamePlayer(350,95,100,100,myColour,0);
 		objects.add(p1); 
 		downEnemies=new ArrayList<>(); 
 		upEnemies=new ArrayList<>();
@@ -56,7 +56,7 @@ public class minigame extends Screen{
 		for(int i=0;i<5;i++){ 
 			int randomENum1 = (int)Math.floor(Math.random() * (800 - 0 + 1) + 0); 
 			int randomENum2 = ((int)Math.floor(Math.random() * (800 - 100 + 1) + 100))*-1;
-			minigameEnemy newEnemy=new minigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 2, eImaged); 
+			MinigameEnemy newEnemy=new MinigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 2, eImaged); 
 			downEnemies.add(newEnemy); 
 			allEnemies.add(newEnemy); 
 			objects.add(newEnemy);
@@ -65,7 +65,7 @@ public class minigame extends Screen{
 		for(int i=0;i<5;i++){ 
 			int randomENum1 = (int)Math.floor(Math.random() * (800 - 0 + 1) + 0); 
 			int randomENum2 = (int)Math.floor(Math.random() * (2000 - 800 + 1) + 800); 
-			minigameEnemy newEnemy1=new minigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 1, eImageu); 
+			MinigameEnemy newEnemy1=new MinigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 1, eImageu); 
 			upEnemies.add(newEnemy1); 
 			allEnemies.add(newEnemy1); 
 			objects.add(newEnemy1);
@@ -73,7 +73,7 @@ public class minigame extends Screen{
 		for(int i=0;i<5;i++){ 
 			int randomENum1 = ((int)Math.floor(Math.random() * (800 - 100 + 1) + 100)) *-1; 
 			int randomENum2 = (int)Math.floor(Math.random() * (700 - 0 + 1) + 0); 
-			minigameEnemy newEnemy2=new minigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 0, eImager); 
+			MinigameEnemy newEnemy2=new MinigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 0, eImager); 
 			rightEnemies.add(newEnemy2); 
 			allEnemies.add(newEnemy2); 
 			objects.add(newEnemy2);
@@ -81,7 +81,7 @@ public class minigame extends Screen{
 		for(int i=0;i<5;i++){ 
 			int randomENum1 = (int)Math.floor(Math.random() * (2000 - 800 + 1) + 800); 
 			int randomENum2 = (int)Math.floor(Math.random() * (700 - 0 + 1) + 0); 
-			minigameEnemy newEnemy3=new minigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 3, eImagel); 
+			MinigameEnemy newEnemy3=new MinigameEnemy(randomENum1, randomENum2, 100, 100, myColour, 3, eImagel); 
 			leftEnemies.add(newEnemy3); 
 			allEnemies.add(newEnemy3); 
 			objects.add(newEnemy3);
@@ -93,7 +93,7 @@ public class minigame extends Screen{
 			super.draw(pen); 
 			pen.drawImage(imageP,p1.x,p1.y,100,100,null);	 
 			 
-			for(minigameEnemy obj: allEnemies){ 
+			for(MinigameEnemy obj: allEnemies){ 
 				obj.draw(pen); 
 				pen.drawImage(obj.getImage(),obj.getX(),obj.getY(),100,100,null);
 			}

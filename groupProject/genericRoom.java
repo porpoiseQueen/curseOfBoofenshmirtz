@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
-public class genericRoom extends Screen{ 
+public class GenericRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
@@ -14,7 +14,7 @@ public class genericRoom extends Screen{
 	private Screen returnTo; 
 	private int orientation;
 	
-	public genericRoom(Screen returnTo, int orientation){ 
+	public GenericRoom(Screen returnTo, int orientation){ 
 		this.returnTo=returnTo; 
 		myColour = new Color(0, 0,0,0);		 
 		this.orientation=orientation;

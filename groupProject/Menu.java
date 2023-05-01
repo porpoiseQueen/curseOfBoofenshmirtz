@@ -53,7 +53,6 @@ class Item<I> {
         bgColor = bg;
         textColor = txt;
       }
-      // Item knows name and position, return value?
       public int getX() { return positionX; }
       public int getY() { return positionY; }
       public Item getUp() { return up; }

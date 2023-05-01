@@ -5,13 +5,13 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
-public class dieScreen extends Screen{ 
+public class DieScreen extends Screen{ 
 	private Sign dieSign;  
 	private Sign returnSign;  	
-	private backGround b1; 
+	private Background b1; 
 	private BufferedImage image;
-	public dieScreen(){ 
-		b1=new backGround(0,0, MyGame.SCREEN_WIDTH, MyGame.SCREEN_HEIGHT, Color.BLACK); 
+	public DieScreen(){ 
+		b1=new Background(0,0, MyGame.SCREEN_WIDTH, MyGame.SCREEN_HEIGHT, Color.BLACK); 
 		objects.add(b1);
 		dieSign=new Sign(50,50,200,75,Color.BLACK, "You're Desab", Color.RED,40);
 		objects.add(dieSign); 

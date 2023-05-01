@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
-public class downStairsRoom extends Screen{ 
+public class DownStairsRoom extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
@@ -13,7 +13,7 @@ public class downStairsRoom extends Screen{
 	public BufferedImage eImage;  
 	private boolean printLock; 
 	private Sign lockPrint;
-	public downStairsRoom(){ 
+	public DownStairsRoom(){ 
 		printLock=false; 
 		lockPrint=new Sign(0,0,580,100,Color.BLACK,"You can't enter the basement without defeating all 4 generals", Color.WHITE,20);
 		myColour = new Color(0, 0,0,0);		 
@@ -26,9 +26,7 @@ public class downStairsRoom extends Screen{
 			eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackCroc.png"));
 		}catch (IOException e){ 
 			e.printStackTrace();
-		} 
-		
-		 
+		}  
 	}  
 	public void update(){ 
 		printLock=false;

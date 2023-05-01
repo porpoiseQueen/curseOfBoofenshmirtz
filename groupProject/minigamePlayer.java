@@ -12,10 +12,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO; 
 import javax.swing.JPanel;  
 import java.util.ArrayList;
-public class minigamePlayer extends GameObject{ 
+public class MinigamePlayer extends GameObject{ 
 	private int direction; 
 	private int score;
-	public minigamePlayer(int x, int y, int width, int height, Color c, int direction){ 
+	public MinigamePlayer(int x, int y, int width, int height, Color c, int direction){ 
 		super(x,y,width,height,c); 
 		direction=0; 
 		score=0;
@@ -26,8 +26,8 @@ public class minigamePlayer extends GameObject{
 	public int getDirection(){ 
 		return this.direction;
 	} 
-	public void checkCollide(ArrayList<minigameEnemy> eList){ 
-		for(minigameEnemy e :eList){ 
+	public void checkCollide(ArrayList<MinigameEnemy> eList){ 
+		for(MinigameEnemy e :eList){ 
 			if(e.getX()+e.getWidth()>=this.x && e.getX()<this.x&&e.getY()+e.getWidth()>=this.y&&e.getY()<=this.y){ 
 				System.out.println("top left");
 			}

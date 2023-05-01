@@ -5,13 +5,13 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
-public class kitchen extends Screen{ 
+public class Kitchen extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
 	protected Color myColour; 
 	public BufferedImage eImage;
-	public kitchen(){ 
+	public Kitchen(){ 
 		  
 		myColour = new Color(0, 0,0,0);		 
 		p1=new OvPlayer(350,560,100,100,myColour);

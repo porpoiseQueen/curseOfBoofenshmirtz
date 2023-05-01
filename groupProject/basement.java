@@ -5,14 +5,14 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO; 
-public class basement extends Screen{ 
+public class Basement extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
 	protected Color myColour; 
 	public BufferedImage eImage;  
 	private Screen returnTo;
-	public basement(Screen returnTo){ 
+	public Basement(Screen returnTo){ 
 		  this.returnTo=returnTo;
 		myColour = new Color(0, 0,0,0);		 
 		p1=new OvPlayer(350,95,100,100,myColour);
