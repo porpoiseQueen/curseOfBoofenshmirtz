@@ -5,13 +5,13 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
 import java.io.IOException; 
 import javax.imageio.ImageIO;
-public class startHallwayScreen extends Screen{ 
+public class StartHallwayScreen extends Screen{ 
 	private OvPlayer p1;  
 	private BufferedImage image; 
 	private BufferedImage imageP; 
 	protected Color myColour; 
 	public BufferedImage eImage; 
-	public startHallwayScreen(){ 
+	public StartHallwayScreen(){ 
 		  
 		myColour = new Color(0, 0,0,0);		 
 		p1=new OvPlayer(350,95,100,100,myColour);

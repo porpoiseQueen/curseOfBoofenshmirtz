@@ -11,10 +11,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException; 
 import javax.imageio.ImageIO; 
 import javax.swing.JPanel; 
-public class minigameEnemy extends GameObject{ 
+public class MinigameEnemy extends GameObject{ 
 	private int direction;
 	private BufferedImage eImage;
-	public minigameEnemy(int x, int y, int width, int height, Color c, int direction, BufferedImage enemyImage){ 
+	public MinigameEnemy(int x, int y, int width, int height, Color c, int direction, BufferedImage enemyImage){ 
 		super(x,y,width,height,c); 
 		this.direction=direction; 
 		eImage=enemyImage;
