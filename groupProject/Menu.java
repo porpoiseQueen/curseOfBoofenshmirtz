@@ -14,6 +14,7 @@ public class Menu<I> extends GameObject{
         super(x,y,width,height,c);
         optionsArrayList=stuff;
         option=optionsArrayList.get(0);
+        optionsArrayList.set(0, option);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class Menu<I> extends GameObject{
         
     }
     public void draw(Graphics pen) {
-        /* if(optionsArrayList.get(0).equals(null)) {
+        /* if(optionsArrayList.get(0).isEmpty()) {
             for(int i = 0; i < options.length; i++) {
                 pen.setColor(options[i].getBgColor());
                 pen.fillRect(options[i].getPosX(), options[i].getY(), width, height);
@@ -41,9 +42,9 @@ public class Menu<I> extends GameObject{
 }
 class Item<I> {
       private int positionX, positionY;
-      private Item up, down, left, right;
+      private Item<I> up, down, left, right;
       private Color bgColor, textColor;
-      public Item(int posX, int posY, Item up, Item down, Item left, Item right, Color bg, Color txt) {
+      public Item(int posX, int posY, Item<I> up, Item<I> down, Item<I> left, Item<I> right, Color bg, Color txt) {
         positionX = posX;
         positionY = posY;
         this.up = up;
@@ -55,10 +56,10 @@ class Item<I> {
       }
       public int getX() { return positionX; }
       public int getY() { return positionY; }
-      public Item getUp() { return up; }
-      public Item getDown() { return down; }
-      public Item getLeft() { return left; }
-      public Item getRight() { return right; }
+      public Item<I> getUp() { return up; }
+      public Item<I> getDown() { return down; }
+      public Item<I> getLeft() { return left; }
+      public Item<I> getRight() { return right; }
       public Color getBgColor() { return bgColor; }
       public Color getTextColor() { return textColor; }
 }
