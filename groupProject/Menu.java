@@ -26,5 +26,25 @@ public class Menu<I> extends GameObject{
     }
 }
 class Item<I> {
-      
+      private int positionX, positionY;
+      private Item up, down, left, right;
+      public Item(int posX, int posY, Item up, Item down, Item left, Item right) {
+        positionX = posX;
+        positionY = posY;
+        this.up = up;
+        this.down = down;
+        this.left = left;
+        this.right = right;
+      }
+      // Item knows name and position, return value?
+      public int getX() { return positionX; }
+      public int getY() { return positionY; }
 }
+
+
+
+
+
+
+
+// [a, a, a, a, a, a, a, a, a, a, a, a]
