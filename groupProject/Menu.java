@@ -18,27 +18,40 @@ public class Menu<I> extends GameObject{
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
+        
         
     }
     public void draw(Graphics pen) {
-        
+        if(optionsArrayList.get(0).equals(null)) {
+            for(int i = 0; i < options.length; i++) {
+                // pen.setColor(options[i].getBgColor());
+            }
+        }
     }
 }
 class Item<I> {
       private int positionX, positionY;
       private Item up, down, left, right;
-      public Item(int posX, int posY, Item up, Item down, Item left, Item right) {
+      private Color bgColor, textColor;
+      public Item(int posX, int posY, Item up, Item down, Item left, Item right, Color bg, Color txt) {
         positionX = posX;
         positionY = posY;
         this.up = up;
         this.down = down;
         this.left = left;
         this.right = right;
+        bgColor = bg;
+        textColor = txt;
       }
       // Item knows name and position, return value?
       public int getX() { return positionX; }
       public int getY() { return positionY; }
+      public Item getUp() { return up; }
+      public Item getDown() { return down; }
+      public Item getLeft() { return left; }
+      public Item getRight() { return right; }
+      public Color getBgColor() { return bgColor; }
+      public Color getTextColor() { return textColor; }
 }
 
 
