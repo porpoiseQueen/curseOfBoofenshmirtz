@@ -3,8 +3,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 public class Menu<I> extends GameObject{ 
     private Item<I> option;
-    private Item<I>[] options;    //String[]
-    private ArrayList<Item<I>> optionsArrayList;    //ArrayList<String>
+    private Item<I>[] options;
+    private ArrayList<Item<I>> optionsArrayList;
     public Menu(int x, int y, int width, int height, Color c, Item<I>[] stuff) {
         super(x,y,width,height,c);
         options=stuff;
@@ -40,7 +40,7 @@ public class Menu<I> extends GameObject{
         }
     }
 }
-class Item<I> {   //Item<String>
+class Item<I> {
     private int positionX, positionY;
     private Item<I> up, down, left, right;
     private Color bgColor, textColor;
