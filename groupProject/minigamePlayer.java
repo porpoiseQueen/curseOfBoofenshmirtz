@@ -28,9 +28,9 @@ public class minigamePlayer extends GameObject{
 	} 
 	public void checkCollide(ArrayList<minigameEnemy> eList){ 
 		for(minigameEnemy e :eList){ 
-			/*if(e.getX()+e.getWidth()>=this.x && e.getX()<this.x&&e.getY()+e.getHeight()>=this.y&&e.getY()<=this.y){ 
-				System.out.println("top left");
-			} */
+			if(e.getX()+e.getWidth()>=this.x && e.getX()<this.x&&e.getY()+e.getHeight()>=this.y&&e.getY()<=this.y){ 
+				System.out.println("top left2");
+			} 
 			if(e.getX()>=this.x && e.getX()+e.getWidth()>this.x+this.width && this.x+this.width>=e.getX()&& e.getY()+e.getHeight()>=this.y&&e.getY()<=this.y){ 
 				System.out.println("top right");
 			} 
