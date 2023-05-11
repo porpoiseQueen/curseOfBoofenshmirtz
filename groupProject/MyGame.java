@@ -69,7 +69,7 @@ public class MyGame extends Game  {
 		boofLab=new BoofsLair();
 		k1=new Kitchen();
 		//names = new Item<>("", "Boo", 500, 500, "", "", "", "", myColour, Color.RED)[5];
-		men = new Menu<>(50, 50, 300, 300, myColour, names);
+		//men = new Menu<>(50, 50, 300, 300, myColour, names);
 		try{ 
 			image=ImageIO.read(getClass().getResourceAsStream("/sprites/spritePaprika.png"));
 		}catch (IOException e){ 
@@ -90,7 +90,7 @@ public class MyGame extends Game  {
     public void draw(Graphics pen) {
         
         activeScreen.draw(pen);
-		men.draw(pen);
+		//men.draw(pen);
 	
     }
         
