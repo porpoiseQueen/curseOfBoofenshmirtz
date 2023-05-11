@@ -3,7 +3,9 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage; 
-import java.io.IOException; 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 public class StartHallwayScreen extends Screen{ 
 	private OvPlayer p1;  
@@ -116,7 +118,11 @@ public class StartHallwayScreen extends Screen{
 				}
 			}
 			BasicEnemy newEnemy=new BasicEnemy("Attack Jaguar",600,400,100,100,myColour,10,5,5,eImage); 
-			Battle battle1=new Battle(MyGame.player1,newEnemy,MyGame.startHall); 
+			BasicEnemy newEnemy2=new BasicEnemy("Attack Jaguar",600,550,100,100,myColour,10,5,5,eImage);
+			ArrayList<BasicEnemy> enemies= new ArrayList(2); 
+			enemies.add(newEnemy2);
+			enemies.add(newEnemy);
+			Battle battle1=new Battle(MyGame.player1,enemies,MyGame.startHall); 
 			try{ 
 			
 				eImage=ImageIO.read(getClass().getResourceAsStream("/sprites/attackJaguar4.png"));
