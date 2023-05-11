@@ -49,6 +49,30 @@ public class Battle extends Screen{
 			e.printStackTrace();
 		}
 	}   
+	public Battle(BattlePlayer bp1, ArrayList<BasicEnemy> e1, Screen returnScreen){  
+		myColour = new Color(0, 0,0,0);	
+		this.bp1=bp1;
+		this.enemies=e1;
+		activeEnemy = enemies.get(0);
+		enemies = new ArrayList<>();
+		objects.add(bp1); 
+		for (BasicEnemy enemy : e1) {
+			objects.add(enemy);
+		}
+		select=1;
+		enemySelect=0;
+		this.returnScreen=returnScreen;		
+		try{ 
+			image=ImageIO.read(getClass().getResourceAsStream("/sprites/battleBackground1.png"));
+			select1=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Fight.png"));
+			select2=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Run.png"));
+			select3=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Item.png"));
+			select4=ImageIO.read(getClass().getResourceAsStream("/sprites/actions-Skill.png"));
+			arrow=ImageIO.read(getClass().getResourceAsStream("/sprites/arrow.png"));
+		}catch (IOException e){ 
+			e.printStackTrace();
+		}
+	}   
 	public void update(){ 
 		super.update();
 		if(select>=5){ 
@@ -82,11 +106,14 @@ public class Battle extends Screen{
 		//pen.drawImage(imageP,bp1.x,bp1.y,100,100,null);
 		Sign name = new Sign(((activeEnemy.x+(activeEnemy.x+activeEnemy.width))/2)-33, activeEnemy.y-25, 50, 20, myColour, "", Color.BLACK, 12);
 		objects.add(name);
+		//here is where the player(s) are drawn
 		pen.drawImage(bp1.returnImage(),bp1.getX(),bp1.getY(), 100,100,null); 
-		pen.drawImage(e1.returnImage(),e1.getX(),e1.getY(), 100,100,null);
-		pen.drawImage(activeSelect,0,500,200,200,null);
 		pen.drawString("HP: " + bp1.health, ((bp1.x + (bp1.x+bp1.width))/2) - 20, bp1.y);
+		//here is where the enemy(s) are drawn
+		pen.drawImage(e1.returnImage(),e1.getX(),e1.getY(), 100,100,null);
 		pen.drawString("HP: " + e1.health, ((e1.x + (e1.x+e1.width))/2) - 20, e1.y - 3); 
+		
+		pen.drawImage(activeSelect,0,500,200,200,null);
 		if(select == 1 && control == KeyEvent.VK_ENTER || select == 1 && control == KeyEvent.VK_SPACE) {
 			pen.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
 			pen.drawImage(arrow, ((activeEnemy.x+(activeEnemy.x+activeEnemy.width))/2)-25, activeEnemy.y+activeEnemy.height+10, 50, 100, null);
